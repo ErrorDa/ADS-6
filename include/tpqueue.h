@@ -11,15 +11,11 @@ class TPQueue {
  public:
 TPQueue() :start(0), stop(0) { }
   void push(T x) {
-    if ((stop - start) >= size) {
-      throw "fail";
-    } else {
       int i = stop++;
       while ((--i > start) && (arr[i % size].prior < x.prior)) {
         arr[(i + 1) % size] = arr[i % size];
       }
       arr[(i + 1) % size] = x;
-    }
   }
   T pop() {
     return arr[(start++) % size];
