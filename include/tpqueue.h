@@ -12,7 +12,7 @@ class TPQueue {
 TPQueue() :start(0), stop(0) { }
   void push(T x) {
       int i = stop++;
-      while ((--i > start) && (arr[i % size].prior < x.prior)) {
+      while ((--i >= start) && (arr[i % size].prior < x.prior)) {
         arr[(i + 1) % size] = arr[i % size];
       }
       arr[(i + 1) % size] = x;
