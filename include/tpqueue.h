@@ -15,9 +15,8 @@ TPQueue() :start(0), stop(0) { }
       throw "fail";
     } else {
       int i = stop++;
-      while ((i > start) && (arr[i % size].prior < x.prior)) {
+      while ((--i > start) && (arr[i % size].prior < x.prior)) {
         arr[(i + 1) % size] = arr[i % size];
-        i--;
       }
       arr[(i + 1) % size] = x;
     }
